@@ -27,7 +27,7 @@ for i in range(16):
     
 temp = graph[2]
 temp.cost = 1500
-graph[4] = temp
+graph[2] = temp
 #2+1
 
 temp = graph[9]
@@ -39,6 +39,43 @@ temp = graph[13]
 temp.cost = 1
 graph[13] = temp
 #13+1
+
+class Wumpus(pg.sprite.Sprite):
+    def __init__(self):
+        super(Wumpus,self).__init__()
+        size = (50,50)
+        self.pos = (240,70)
+        images = []
+        images.append(pg.image.load('04.png'))
+        self.rect = pg.Rect(self.pos,size)
+        self.images = [pg.transform.scale(image,size)for image in images]
+        self.image = images[0]
+    def update(self):
+        self.image = self.images[0]
+class Monster(pg.sprite.Sprite):
+    def __init__(self):
+        super(Monster,self).__init__()
+        size = (50,50)
+        self.pos = (140,170)
+        images = []
+        images.append(pg.image.load('04.png'))
+        self.rect = pg.Rect(self.pos,size)
+        self.images = [pg.transform.scale(image,size)for image in images]
+        self.image = images[0]
+    def update(self):
+        self.image = self.images[0]
+class Gold(pg.sprite.Sprite):
+    def __init__(self):
+        super(Gold,self).__init__()
+        size = (50,50)
+        self.pos = (190,220)
+        images = []
+        images.append(pg.image.load('05.png'))
+        self.rect = pg.Rect(self.pos,size)
+        self.images = [pg.transform.scale(image,size)for image in images]
+        self.image = images[0]
+    def update(self):
+        self.image = self.images[0]
 class wall(pg.sprite.Sprite):
     def __init__(self):
         super(wall,self).__init__()

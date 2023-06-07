@@ -24,9 +24,15 @@ def main():
     now = zero_pos
     player = Agentshow()
     back = wall()
+    Mon = Monster()
+    G = Gold()
+    W = Wumpus()
     coin = True
     all_sprite = pg.sprite.Group(player)
     backback = pg.sprite.Group(back)
+    moner = pg.sprite.Group(Mon)
+    gg = pg.sprite.Group(G)
+    ww = pg.sprite.Group(W)
     while coin:
         if timecounter < len(pos_list):
             now = pos_return(pos_list[timecounter])
@@ -37,10 +43,17 @@ def main():
             if event.type == pg.QUIT:
                 pg.quit()
                 quit()
+        ww.update()
+        gg.update()
+        moner.update()
         all_sprite.update(now)
         backback.update()
         SCREEN.fill(BACKGROUND_COLOR)
-        backback.draw(SCREEN)
+       
+        backback.draw(SCREEN) 
+        ww.draw(SCREEN)
+        gg.draw(SCREEN)
+        moner.draw(SCREEN)
         all_sprite.draw(SCREEN)
         pg.display.update()
         clock.tick(FPS)
