@@ -15,7 +15,7 @@ graph = []
 for i in range(16):
     temp = vertex(i+1,10)
     a = i+1
-    if a-1 > 0:
+    if a-1 > 0 and (a-1)%4 !=0:
         temp.able(a-1)
     if a%4 != 0:
         temp.able(a+1)
@@ -24,7 +24,8 @@ for i in range(16):
     if a-4 > 0:
         temp.able(a-4)
     graph.append(temp)
-    
+#for i in graph:
+#    print(i.available)
 temp = graph[2]
 temp.cost = 1500
 graph[2] = temp
@@ -56,7 +57,7 @@ class Monster(pg.sprite.Sprite):
     def __init__(self):
         super(Monster,self).__init__()
         size = (50,50)
-        self.pos = (140,170)
+        self.pos = (190,170)
         images = []
         images.append(pg.image.load('04.png'))
         self.rect = pg.Rect(self.pos,size)
